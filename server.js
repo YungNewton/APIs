@@ -9,8 +9,10 @@ app.get('/', (req, res)=>{
     res.sendFile(__dirname+"/index.html");
 })
 app.post("/", (req, res)=>{
-    var country = req.body.count;
-    const url = "https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=ddbf711210b97d882315154c0777c4ba"
+    var lat = req.body.lat;
+    var long = req.body.long;
+    const apiID = "ddbf711210b97d882315154c0777c4ba";
+    const url = "https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&appid="+apiID;
     https.get(url, (response)=>{
         console.log(response.statusCode);
         response.on("data",(data)=>{
