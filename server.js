@@ -12,7 +12,8 @@ app.get('/', (req, res)=>{
             console.log(weatherData);
             var temperature = weatherData.main.temp
             var place = weatherData.name
-            res.send("<h1 style='font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;'>Temperature in <h1/>"+ place+"<h1 style='font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;'> is <h1/>"+temperature);
+            res.write("<h1 style='font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;'>Temperature in "+ place+" is "+temperature+"<h1/>");
+            res.send();
         })
     })
 })
