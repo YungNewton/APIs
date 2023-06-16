@@ -14,10 +14,8 @@ app.post("/", (req, res)=>{
     const apiID = "ddbf711210b97d882315154c0777c4ba";
     const url = "https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&appid="+apiID;
     https.get(url, (response)=>{
-        console.log(response.statusCode);
         response.on("data",(data)=>{
             const weatherData = JSON.parse(data);
-            console.log(weatherData);
             var temperature = weatherData.main.temp;
             var place = weatherData.name;
             var weather = weatherData.weather[0].description;
